@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About | MumKids</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -14,11 +13,26 @@
 <header>
     <div class="container nav-container">
         <h1 class="logo">MumKids</h1>
+
         <nav>
-            <a href="index.html">Home</a>
-            <a href="products.html">Shop</a>
-            <a href="about.html">About</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="products.html">Shop &#9662;</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Top Wear</a></li>
+                        <li><a href="#">Bottom Wear</a></li>
+                        <li><a href="#">Outerwear</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a></li>
+            </ul>
         </nav>
+
+        <div class="header-icons">
+            <span class="search-icon">&#128269;</span>
+            <span class="cart-icon">&#128722; <span id="cart-count">0</span></span>
+        </div>
     </div>
 </header>
 
@@ -26,11 +40,8 @@
     <div class="container">
         <h2 class="section-title">About MumKids</h2>
         <p>
-            MumKids is a premium fashion brand focused on stylish,
-            comfortable and high-quality kidswear. We combine elegance
-            and modern trends to deliver unique collections.
+            MumKids is a premium kidswear brand delivering stylish, comfortable, and high-quality collections for modern children.
         </p>
-
         <a href="https://wa.me/919499111369?text=Hi%20MumKids,%20I%20want%20to%20know%20more." 
            class="btn-primary" target="_blank">
            Contact on WhatsApp
