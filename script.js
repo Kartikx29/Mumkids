@@ -1,5 +1,13 @@
-let cartCount = 0;
+// Hamburger toggle
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("nav-menu");
 
+hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+
+// Cart functionality
+let cartCount = 0;
 const products = [
     { name: "Floral Frock", price: "₹2,200", image: "dress.jpg" },
     { name: "Denim Set", price: "₹2,800", image: "denim.jpg" },
