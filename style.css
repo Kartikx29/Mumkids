@@ -23,12 +23,17 @@ header {
     padding: 20px 0;
     position: sticky;
     top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .logo {
@@ -37,15 +42,78 @@ header {
     letter-spacing: 2px;
 }
 
-nav a {
+/* Navigation Menu */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu li a {
     color: #fff;
     text-decoration: none;
-    margin-left: 25px;
+    font-weight: 500;
+    padding: 5px 0;
     transition: 0.3s;
 }
 
-nav a:hover {
+.nav-menu li a:hover {
     color: #ff4d6d;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    padding: 10px 0;
+    border-radius: 8px;
+    list-style: none;
+    min-width: 150px;
+    z-index: 100;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 8px 15px;
+    font-weight: 400;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Header Icons */
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.cart-icon {
+    position: relative;
+}
+
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #ff4d6d;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    padding: 2px 6px;
 }
 
 /* HERO */
@@ -124,6 +192,26 @@ nav a:hover {
 .product-card p {
     color: #ff4d6d;
     margin-bottom: 15px;
+}
+
+.product-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-add-cart {
+    background: #ffb347;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-add-cart:hover {
+    background: #ff9234;
 }
 
 /* ABOUT */
