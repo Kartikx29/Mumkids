@@ -1,162 +1,153 @@
-/* Reset and Base */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #f5f5f5;
-    color: #333;
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: #fff;
 }
 
-/* Container */
 .container {
+    width: 90%;
     max-width: 1200px;
     margin: auto;
-    padding: 20px;
 }
 
-/* Header */
+/* HEADER */
 header {
-    background-color: #222;
-    color: white;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
     padding: 20px 0;
+    position: sticky;
+    top: 0;
 }
 
-header h1 {
-    display: inline-block;
-    margin-left: 20px;
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-header nav {
-    float: right;
-    margin-right: 20px;
+.logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
 }
 
-header nav a {
-    color: white;
-    margin-left: 15px;
+nav a {
+    color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    margin-left: 25px;
+    transition: 0.3s;
 }
 
-header nav a:hover {
-    text-decoration: underline;
+nav a:hover {
+    color: #ff4d6d;
 }
 
-/* Hero Section */
+/* HERO */
 .hero {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #1a1a1a, #2c2c2c);
     text-align: center;
-    padding: 60px 20px;
-    background: url('hero-bg.jpg') center/cover no-repeat;
-    color: white;
 }
 
 .hero h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    color: #ccc;
 }
 
-.btn {
-    background-color: #ff4500;
-    color: white;
-    padding: 12px 25px;
+.btn-primary {
+    background: #ff4d6d;
+    padding: 14px 30px;
+    border-radius: 50px;
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+    color: white;
+    transition: 0.3s;
 }
 
-.btn:hover {
-    background-color: #e03e00;
+.btn-primary:hover {
+    background: #ff1e4d;
 }
 
-/* Products Section */
-.products {
-    padding: 40px 0;
+/* PRODUCTS */
+.featured {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2rem;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
 }
 
 .product-card {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
     text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 .product-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .product-card h3 {
-    margin: 10px 0;
-}
-
-.product-card p {
-    font-weight: bold;
     margin-bottom: 10px;
 }
 
-.product-card a {
-    text-decoration: none;
-    background-color: #25d366;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-}
-
-.product-card a:hover {
-    background-color: #128c7e;
-}
-
-/* Footer */
-footer {
-    background-color: #222;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 40px;
-}
-
-/* About Section */
-.about {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    margin: 40px auto;
-}
-.about h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-.about p {
-    font-size: 1.1rem;
+.product-card p {
+    color: #ff4d6d;
     margin-bottom: 15px;
 }
-.about .btn {
-    background-color: #25d366;
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+
+/* ABOUT */
+.about-section {
+    padding: 100px 0;
+    text-align: center;
 }
-.about .btn:hover {
-    background-color: #128c7e;
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+}
+
+/* FLOATING WHATSAPP */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
 }
