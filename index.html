@@ -4,24 +4,42 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MumKids | Premium Fashion</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
     <div class="container nav-container">
         <h1 class="logo">MumKids</h1>
+
+        <!-- Navigation Menu -->
         <nav>
-            <a href="index.html">Home</a>
-            <a href="products.html">Shop</a>
-            <a href="about.html">About</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="products.html">Shop &#9662;</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Top Wear</a></li>
+                        <li><a href="#">Bottom Wear</a></li>
+                        <li><a href="#">Outerwear</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About</a></li>
+            </ul>
         </nav>
+
+        <!-- Icons -->
+        <div class="header-icons">
+            <span class="search-icon">&#128269;</span>
+            <span class="cart-icon">&#128722; <span id="cart-count">0</span></span>
+        </div>
     </div>
 </header>
 
+<!-- HERO SECTION -->
 <section class="hero">
     <div class="hero-content">
         <h2>Premium Kids Fashion</h2>
@@ -30,6 +48,7 @@
     </div>
 </section>
 
+<!-- FEATURED PRODUCTS -->
 <section class="featured">
     <div class="container">
         <h2 class="section-title">Featured Collection</h2>
@@ -37,8 +56,10 @@
     </div>
 </section>
 
+<!-- Floating WhatsApp -->
 <a href="https://wa.me/919499111369" class="floating-whatsapp" target="_blank">Chat</a>
 
+<!-- FOOTER -->
 <footer>
     <p>© 2026 MumKids. All Rights Reserved.</p>
 </footer>
