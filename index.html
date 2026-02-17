@@ -11,36 +11,31 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
     <div class="header-left">
-        <img src="logo.png" class="logo" id="logoClick">
-
-        <div class="menu-icon" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
+        <img src="logo.png" class="logo" id="logo">
+        <div class="menu-icon" id="menuBtn">
+            <span></span><span></span><span></span>
         </div>
     </div>
 
     <h1 class="brand-name">MumKids</h1>
 
     <div class="header-right">
-        <i class="fa-solid fa-magnifying-glass icon"></i>
-
-        <div class="cart-container">
-            <i class="fa-solid fa-cart-shopping icon"></i>
-            <span class="cart-count" id="cartCount">0</span>
+        <input type="text" id="searchInput" placeholder="Search products...">
+        <div class="cart-icon" id="cartBtn">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cartCount">0</span>
         </div>
     </div>
 </header>
 
-<!-- DROPDOWN -->
-<nav class="dropdown" id="mainDropdown">
+<!-- Dropdown -->
+<nav class="dropdown" id="dropdown">
     <ul>
-        <li onclick="goHome()">Home</li>
+        <li onclick="scrollToTop()">Home</li>
 
-        <li class="shop-item">
+        <li class="shop">
             Shop ▸
             <ul class="submenu">
                 <li onclick="filterCategory('men')">Men</li>
@@ -49,29 +44,37 @@
             </ul>
         </li>
 
-        <li onclick="goAbout()">About</li>
+        <li onclick="scrollToAbout()">About</li>
     </ul>
 </nav>
 
-<!-- WELCOME POPUP -->
-<div class="welcome-popup" id="welcomePopup">
-    <div class="welcome-box">
-        <h2>Welcome to MumKids Store</h2>
-        <button onclick="closeWelcome()">Close</button>
+<!-- Welcome Popup -->
+<div class="popup" id="welcomePopup">
+    <div class="popup-box">
+        <h2>✨ Welcome to MumKids Store ✨</h2>
+        <p>Premium fashion for your beautiful family.</p>
+        <button onclick="closePopup()">Enter Store</button>
     </div>
 </div>
 
-<!-- PRODUCTS -->
+<!-- Products -->
 <section class="products" id="productContainer"></section>
 
-<!-- ABOUT -->
-<section class="about-section" id="aboutSection">
+<!-- About Section -->
+<section class="about" id="aboutSection">
     <h2>About MumKids</h2>
     <p>
-        MumKids is a premium fashion destination for families.
-        Stylish collections for Men, Women & Kids.
+        MumKids delivers modern fashion for Men, Women and Kids.
+        Crafted with elegance, comfort and premium quality.
     </p>
 </section>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cartSidebar">
+    <h3>Your Cart</h3>
+    <div id="cartItems"></div>
+    <button onclick="closeCart()">Close</button>
+</div>
 
 <script src="script.js"></script>
 </body>
