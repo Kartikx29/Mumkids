@@ -4,14 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MumKids</title>
+
 <link rel="stylesheet" href="style.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
 
+<!-- HEADER -->
 <header>
     <div class="header-left">
-        <img src="logo.png" class="logo">
+        <img src="logo.png" class="logo" id="logoClick">
+
         <div class="menu-icon" id="menuToggle">
             <span></span>
             <span></span>
@@ -23,6 +27,7 @@
 
     <div class="header-right">
         <i class="fa-solid fa-magnifying-glass icon"></i>
+
         <div class="cart-container">
             <i class="fa-solid fa-cart-shopping icon"></i>
             <span class="cart-count" id="cartCount">0</span>
@@ -30,10 +35,11 @@
     </div>
 </header>
 
-<!-- Main Dropdown -->
+<!-- DROPDOWN -->
 <nav class="dropdown" id="mainDropdown">
     <ul>
         <li onclick="goHome()">Home</li>
+
         <li class="shop-item">
             Shop ▸
             <ul class="submenu">
@@ -42,16 +48,29 @@
                 <li onclick="filterCategory('kids')">Kids</li>
             </ul>
         </li>
+
         <li onclick="goAbout()">About</li>
     </ul>
 </nav>
 
-<section class="products" id="productContainer">
-</section>
+<!-- WELCOME POPUP -->
+<div class="welcome-popup" id="welcomePopup">
+    <div class="welcome-box">
+        <h2>Welcome to MumKids Store</h2>
+        <button onclick="closeWelcome()">Close</button>
+    </div>
+</div>
 
+<!-- PRODUCTS -->
+<section class="products" id="productContainer"></section>
+
+<!-- ABOUT -->
 <section class="about-section" id="aboutSection">
     <h2>About MumKids</h2>
-    <p>Premium clothing collection for families. Designed with love.</p>
+    <p>
+        MumKids is a premium fashion destination for families.
+        Stylish collections for Men, Women & Kids.
+    </p>
 </section>
 
 <script src="script.js"></script>
