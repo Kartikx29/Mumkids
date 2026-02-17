@@ -8,6 +8,7 @@ const cartBtn=document.getElementById("cartBtn");
 const cartPanel=document.getElementById("cartPanel");
 const cartCount=document.getElementById("cartCount");
 const cartItems=document.getElementById("cartItems");
+const totalPrice=document.getElementById("totalPrice");
 const productSection=document.getElementById("productSection");
 
 let cart=[];
@@ -25,19 +26,13 @@ menuBtn.onclick=()=>{
 /* LOGO */
 logo.onclick=()=>{
     welcome.style.display="block";
-    setTimeout(()=>{
-        welcome.style.display="none";
-    },3000);
+    setTimeout(()=>welcome.style.display="none",3000);
 };
 
-/* SEARCH ICON */
+/* SEARCH */
 searchIcon.onclick=()=>{
-    if(searchInput.style.display==="none"){
-        searchInput.style.display="block";
-        searchInput.focus();
-    }else{
-        searchInput.style.display="none";
-    }
+    searchInput.style.display=
+    searchInput.style.display==="none"?"block":"none";
 };
 
 /* PRODUCTS */
@@ -62,7 +57,6 @@ function displayProducts(list){
 
 displayProducts(products);
 
-/* SEARCH FUNCTION */
 searchInput.addEventListener("input",()=>{
     const value=searchInput.value.toLowerCase();
     const filtered=products.filter(p=>p.name.toLowerCase().includes(value));
@@ -83,23 +77,26 @@ function addToCart(id){
 
 function updateCart(){
     cartItems.innerHTML="";
+    let total=0;
+
     cart.forEach(p=>{
+        total+=p.price*p.qty;
         cartItems.innerHTML+=`<p>${p.name} x${p.qty}</p>`;
     });
+
     cartCount.innerText=cart.reduce((a,b)=>a+b.qty,0);
+    totalPrice.innerText="Total: ₹"+total;
 }
 
-cartBtn.onclick=()=>{
-    cartPanel.classList.add("active");
-};
+cartBtn.onclick=()=>cartPanel.classList.add("active");
 
 function closeCart(){
     cartPanel.classList.remove("active");
 }
 
-/* SCROLL */
 function scrollAbout(){
-    document.getElementById("aboutSection").scrollIntoView({behavior:"smooth"});
+    document.getElementById("aboutSection")
+    .scrollIntoView({behavior:"smooth"});
 }
 
 function scrollHome(){
