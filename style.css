@@ -1,25 +1,27 @@
 body{
     margin:0;
-    font-family:Arial;
-    background:#ffffff;
-    color:#111;
+    font-family:Segoe UI, sans-serif;
+    background:#fef9f4;
+    color:#1c1c1c;
 }
 
+/* HEADER */
 header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:10px 25px;
-    border-bottom:1px solid #ddd;
+    padding:12px 20px;
+    background:#ffffff;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
     position:sticky;
     top:0;
-    background:white;
+    z-index:1000;
 }
 
 .left{
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:12px;
 }
 
 .logo{
@@ -31,19 +33,20 @@ header{
 .menu{
     display:flex;
     flex-direction:column;
-    gap:5px;
+    gap:4px;
     cursor:pointer;
 }
 
 .menu span{
-    width:25px;
+    width:24px;
     height:3px;
-    background:black;
+    background:#1c1c1c;
 }
 
 .brand{
-    font-size:26px;
-    font-weight:bold;
+    font-size:24px;
+    font-weight:600;
+    color:#14213d;
 }
 
 .right{
@@ -55,12 +58,13 @@ header{
 .icon{
     cursor:pointer;
     font-size:18px;
+    color:#14213d;
 }
 
 #searchInput{
     display:none;
-    padding:5px 10px;
-    border:1px solid #ccc;
+    padding:6px 12px;
+    border:1px solid #ddd;
     border-radius:20px;
 }
 
@@ -73,19 +77,21 @@ header{
     position:absolute;
     top:-6px;
     right:-8px;
-    background:black;
+    background:#ff6b6b;
     color:white;
-    font-size:12px;
+    font-size:11px;
     border-radius:50%;
     padding:2px 6px;
 }
 
+/* DROPDOWN */
 .dropdown{
     position:absolute;
     top:60px;
     left:20px;
     background:white;
-    border:1px solid #ddd;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
     padding:15px;
     display:none;
 }
@@ -95,64 +101,138 @@ header{
     cursor:pointer;
 }
 
+/* WELCOME */
 .welcome{
     text-align:center;
-    padding:10px;
-    font-size:20px;
+    padding:12px;
+    font-size:18px;
+    color:#ff6b6b;
     display:none;
 }
 
+/* PRODUCTS */
 .products{
-    min-height:100vh;
-    padding:40px;
+    padding:40px 20px;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+    gap:25px;
 }
 
 .product-card{
-    border:1px solid #ddd;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
     padding:15px;
     text-align:center;
+    transition:0.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
 }
 
 .product-card img{
     width:100%;
-    height:200px;
-    object-fit:cover;
+    border-radius:10px;
 }
 
 .product-card button{
     margin-top:10px;
     padding:8px 15px;
-    background:black;
+    background:#14213d;
     color:white;
     border:none;
+    border-radius:20px;
     cursor:pointer;
 }
 
+/* ABOUT */
 .about{
-    height:100vh;
+    min-height:100vh;
+    background:#fff;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    background:#f5f5f5;
     text-align:center;
+    padding:40px;
 }
 
+/* CART */
 .cart-panel{
     position:fixed;
-    right:-300px;
-    top:0;
+    right:-350px;
+    top:70px;
     width:300px;
-    height:100%;
+    height:calc(100% - 70px);
     background:white;
-    border-left:1px solid #ddd;
+    box-shadow:-4px 0 15px rgba(0,0,0,0.1);
     padding:20px;
     transition:0.3s;
+    overflow:auto;
 }
 
 .cart-panel.active{
     right:0;
+}
+
+.checkout{
+    width:100%;
+    padding:10px;
+    background:#ff6b6b;
+    border:none;
+    color:white;
+    border-radius:20px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+.close-btn{
+    width:100%;
+    margin-top:8px;
+    padding:8px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:26px;
+    text-decoration:none;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    header{
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .brand{
+        font-size:20px;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .cart-panel{
+        width:100%;
+        right:-100%;
+    }
+
+    .cart-panel.active{
+        right:0;
+    }
 }
