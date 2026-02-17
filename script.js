@@ -1,66 +1,100 @@
-const menuToggle = document.getElementById("menuToggle");
-const dropdown = document.getElementById("mainDropdown");
-const aboutSection = document.getElementById("aboutSection");
-const productContainer = document.getElementById("productContainer");
+const menuBtn = document.getElementById("menuBtn");
+const dropdown = document.getElementById("dropdown");
+const logo = document.getElementById("logo");
+const popup = document.getElementById("welcomePopup");
+const searchInput = document.getElementById("searchInput");
+const cartBtn = document.getElementById("cartBtn");
+const cartSidebar = document.getElementById("cartSidebar");
 const cartCount = document.getElementById("cartCount");
-const logoClick = document.getElementById("logoClick");
-const welcomePopup = document.getElementById("welcomePopup");
+const cartItems = document.getElementById("cartItems");
 
-let cart = 0;
+let cart = [];
 
-menuToggle.onclick = () => {
-    dropdown.style.display =
-        dropdown.style.display === "block" ? "none" : "block";
+/* DROPDOWN AUTO CLOSE */
+let timer;
+menuBtn.onclick = () => {
+    dropdown.style.display = "block";
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        dropdown.style.display = "none";
+    }, 20000);
 };
 
-function goHome() {
-    aboutSection.style.display = "none";
-    productContainer.style.display = "grid";
+/* LOGO CLICK */
+logo.onclick = () => {
+    logo.classList.add("enlarged");
+    popup.style.display = "flex";
+};
+
+function closePopup() {
+    popup.style.display = "none";
+    logo.classList.remove("enlarged");
 }
 
-function goAbout() {
-    productContainer.style.display = "none";
-    aboutSection.style.display = "block";
-}
-
+/* PRODUCTS */
 const products = [
-    { name: "Kids Jacket", price: 999, category: "kids", image: "https://via.placeholder.com/300" },
-    { name: "Men T-Shirt", price: 799, category: "men", image: "https://via.placeholder.com/300" },
-    { name: "Women Dress", price: 1499, category: "women", image: "https://via.placeholder.com/300" }
+    {id:1,name:"Kids Jacket",price:999,category:"kids",image:"https://via.placeholder.com/300"},
+    {id:2,name:"Men Shirt",price:799,category:"men",image:"https://via.placeholder.com/300"},
+    {id:3,name:"Women Dress",price:1499,category:"women",image:"https://via.placeholder.com/300"}
 ];
 
+const container = document.getElementById("productContainer");
+
 function displayProducts(list) {
-    productContainer.innerHTML = "";
-    list.forEach(p => {
-        productContainer.innerHTML += `
-            <div class="product-card">
-                <img src="${p.image}">
-                <div class="product-info">
-                    <h3>${p.name}</h3>
-                    <div class="price">₹${p.price}</div>
-                    <button class="add-cart" onclick="addToCart()">Add to Cart</button>
-                </div>
-            </div>
-        `;
+    container.innerHTML = "";
+    list.forEach(p=>{
+        container.innerHTML += `
+        <div class="product-card">
+            <img src="${p.image}">
+            <h3>${p.name}</h3>
+            <p>₹${p.price}</p>
+            <button onclick="addToCart(${p.id})">Add to Cart</button>
+        </div>`;
     });
 }
 
-function filterCategory(cat) {
-    const filtered = products.filter(p => p.category === cat);
+displayProducts(products);
+
+/* SEARCH */
+searchInput.addEventListener("input",()=>{
+    const value = searchInput.value.toLowerCase();
+    const filtered = products.filter(p=>p.name.toLowerCase().includes(value));
+    displayProducts(filtered);
+});
+
+/* CATEGORY */
+function filterCategory(cat){
+    const filtered = products.filter(p=>p.category===cat);
     displayProducts(filtered);
 }
 
-function addToCart() {
-    cart++;
-    cartCount.innerText = cart;
+/* CART */
+function addToCart(id){
+    const item = cart.find(p=>p.id===id);
+    if(item){
+        item.qty += 1;
+    } else {
+        const product = products.find(p=>p.id===id);
+        cart.push({...product,qty:1});
+    }
+    updateCart();
 }
 
-logoClick.onclick = () => {
-    welcomePopup.style.display = "flex";
-};
-
-function closeWelcome() {
-    welcomePopup.style.display = "none";
+function updateCart(){
+    cartItems.innerHTML="";
+    cart.forEach(p=>{
+        cartItems.innerHTML+=`<p>${p.name} x${p.qty}</p>`;
+    });
+    cartCount.innerText = cart.reduce((sum,p)=>sum+p.qty,0);
 }
 
-displayProducts(products);
+cartBtn.onclick = ()=> cartSidebar.classList.add("active");
+function closeCart(){ cartSidebar.classList.remove("active"); }
+
+/* SCROLL */
+function scrollToAbout(){
+    document.getElementById("aboutSection").scrollIntoView({behavior:"smooth"});
+}
+function scrollToTop(){
+    window.scrollTo({top:0,behavior:"smooth"});
+}
