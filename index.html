@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +11,8 @@
 
 <body>
 
-<!-- HEADER -->
 <header>
-    <div class="left-section">
+    <div class="left">
         <img src="logo.png" class="logo" id="logo">
 
         <div class="menu" id="menuBtn">
@@ -23,45 +22,30 @@
         </div>
     </div>
 
-    <h1 class="brand">MumKids</h1>
+    <div class="brand">MumKids</div>
 
-    <div class="right-section">
-        <input type="text" id="searchInput" placeholder="Search...">
+    <div class="right">
+        <i class="fa fa-search icon" id="searchIcon"></i>
+        <input type="text" id="searchInput" placeholder="Search product">
 
         <div class="cart" id="cartBtn">
-            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa fa-shopping-cart"></i>
             <span id="cartCount">0</span>
         </div>
     </div>
 </header>
 
-<!-- Dropdown -->
 <nav class="dropdown" id="dropdown">
-    <ul>
-        <li onclick="scrollTopPage()">Home</li>
-        <li onclick="showProducts()">Shop</li>
-        <li onclick="scrollToAbout()">About</li>
-    </ul>
+    <p onclick="scrollHome()">Home</p>
+    <p onclick="scrollAbout()">About</p>
 </nav>
 
-<!-- Welcome Text -->
-<div class="welcome-text" id="welcomeText">
+<div class="welcome" id="welcomeText">
     Welcome to MumKids Store ✨
 </div>
 
-<!-- Slideshow -->
-<section class="slider">
-    <div class="slide active">Premium Fashion</div>
-    <div class="slide">Unisex Collection</div>
-    <div class="slide">Style for Families</div>
-
-    <button class="shop-btn" onclick="showProducts()">SHOP</button>
-</section>
-
-<!-- Products -->
 <section class="products" id="productSection"></section>
 
-<!-- About -->
 <section class="about" id="aboutSection">
     <h2>About MumKids</h2>
     <p>
@@ -70,7 +54,6 @@
     </p>
 </section>
 
-<!-- Cart Panel -->
 <div class="cart-panel" id="cartPanel">
     <h3>Your Cart</h3>
     <div id="cartItems"></div>
