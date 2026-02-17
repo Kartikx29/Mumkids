@@ -7,23 +7,28 @@
 
 <link rel="stylesheet" href="style.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header>
-    <div class="header-left">
+    <div class="left-section">
         <img src="logo.png" class="logo" id="logo">
-        <div class="menu-icon" id="menuBtn">
-            <span></span><span></span><span></span>
+
+        <div class="menu" id="menuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
 
-    <h1 class="brand-name">MumKids</h1>
+    <h1 class="brand">MumKids</h1>
 
-    <div class="header-right">
-        <input type="text" id="searchInput" placeholder="Search products...">
-        <div class="cart-icon" id="cartBtn">
+    <div class="right-section">
+        <input type="text" id="searchInput" placeholder="Search...">
+
+        <div class="cart" id="cartBtn">
             <i class="fa-solid fa-cart-shopping"></i>
             <span id="cartCount">0</span>
         </div>
@@ -33,44 +38,40 @@
 <!-- Dropdown -->
 <nav class="dropdown" id="dropdown">
     <ul>
-        <li onclick="scrollToTop()">Home</li>
-
-        <li class="shop">
-            Shop ▸
-            <ul class="submenu">
-                <li onclick="filterCategory('men')">Men</li>
-                <li onclick="filterCategory('women')">Women</li>
-                <li onclick="filterCategory('kids')">Kids</li>
-            </ul>
-        </li>
-
+        <li onclick="scrollTopPage()">Home</li>
+        <li onclick="showProducts()">Shop</li>
         <li onclick="scrollToAbout()">About</li>
     </ul>
 </nav>
 
-<!-- Welcome Popup -->
-<div class="popup" id="welcomePopup">
-    <div class="popup-box">
-        <h2>✨ Welcome to MumKids Store ✨</h2>
-        <p>Premium fashion for your beautiful family.</p>
-        <button onclick="closePopup()">Enter Store</button>
-    </div>
+<!-- Welcome Text -->
+<div class="welcome-text" id="welcomeText">
+    Welcome to MumKids Store ✨
 </div>
 
-<!-- Products -->
-<section class="products" id="productContainer"></section>
+<!-- Slideshow -->
+<section class="slider">
+    <div class="slide active">Premium Fashion</div>
+    <div class="slide">Unisex Collection</div>
+    <div class="slide">Style for Families</div>
 
-<!-- About Section -->
+    <button class="shop-btn" onclick="showProducts()">SHOP</button>
+</section>
+
+<!-- Products -->
+<section class="products" id="productSection"></section>
+
+<!-- About -->
 <section class="about" id="aboutSection">
     <h2>About MumKids</h2>
     <p>
-        MumKids delivers modern fashion for Men, Women and Kids.
-        Crafted with elegance, comfort and premium quality.
+        MumKids delivers modern, stylish fashion for men, women and kids.
+        Designed for comfort and elegance.
     </p>
 </section>
 
-<!-- Cart Sidebar -->
-<div class="cart-sidebar" id="cartSidebar">
+<!-- Cart Panel -->
+<div class="cart-panel" id="cartPanel">
     <h3>Your Cart</h3>
     <div id="cartItems"></div>
     <button onclick="closeCart()">Close</button>
