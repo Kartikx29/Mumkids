@@ -1,17 +1,18 @@
 const menuBtn = document.getElementById("menuBtn");
 const dropdown = document.getElementById("dropdown");
 const logo = document.getElementById("logo");
-const popup = document.getElementById("welcomePopup");
+const welcomeText = document.getElementById("welcomeText");
 const searchInput = document.getElementById("searchInput");
 const cartBtn = document.getElementById("cartBtn");
-const cartSidebar = document.getElementById("cartSidebar");
+const cartPanel = document.getElementById("cartPanel");
 const cartCount = document.getElementById("cartCount");
 const cartItems = document.getElementById("cartItems");
+const productSection = document.getElementById("productSection");
 
 let cart = [];
-
-/* DROPDOWN AUTO CLOSE */
 let timer;
+
+/* Dropdown auto close */
 menuBtn.onclick = () => {
     dropdown.style.display = "block";
     clearTimeout(timer);
@@ -20,30 +21,39 @@ menuBtn.onclick = () => {
     }, 20000);
 };
 
-/* LOGO CLICK */
+/* Logo click message */
 logo.onclick = () => {
-    logo.classList.add("enlarged");
-    popup.style.display = "flex";
+    welcomeText.style.display = "block";
+    setTimeout(() => {
+        welcomeText.style.display = "none";
+    }, 3000);
 };
 
-function closePopup() {
-    popup.style.display = "none";
-    logo.classList.remove("enlarged");
-}
+/* Slider */
+let slides = document.querySelectorAll(".slide");
+let index = 0;
 
-/* PRODUCTS */
+setInterval(() => {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+}, 3000);
+
+/* Products */
 const products = [
-    {id:1,name:"Kids Jacket",price:999,category:"kids",image:"https://via.placeholder.com/300"},
-    {id:2,name:"Men Shirt",price:799,category:"men",image:"https://via.placeholder.com/300"},
-    {id:3,name:"Women Dress",price:1499,category:"women",image:"https://via.placeholder.com/300"}
+    {id:1,name:"Kids Jacket",price:999,image:"https://via.placeholder.com/300"},
+    {id:2,name:"Men Shirt",price:799,image:"https://via.placeholder.com/300"},
+    {id:3,name:"Women Dress",price:1499,image:"https://via.placeholder.com/300"}
 ];
 
-const container = document.getElementById("productContainer");
+function showProducts() {
+    displayProducts(products);
+}
 
 function displayProducts(list) {
-    container.innerHTML = "";
-    list.forEach(p=>{
-        container.innerHTML += `
+    productSection.innerHTML = "";
+    list.forEach(p => {
+        productSection.innerHTML += `
         <div class="product-card">
             <img src="${p.image}">
             <h3>${p.name}</h3>
@@ -53,48 +63,43 @@ function displayProducts(list) {
     });
 }
 
-displayProducts(products);
-
-/* SEARCH */
-searchInput.addEventListener("input",()=>{
+/* Search */
+searchInput.addEventListener("input", () => {
     const value = searchInput.value.toLowerCase();
-    const filtered = products.filter(p=>p.name.toLowerCase().includes(value));
+    const filtered = products.filter(p =>
+        p.name.toLowerCase().includes(value)
+    );
     displayProducts(filtered);
 });
 
-/* CATEGORY */
-function filterCategory(cat){
-    const filtered = products.filter(p=>p.category===cat);
-    displayProducts(filtered);
-}
-
-/* CART */
-function addToCart(id){
-    const item = cart.find(p=>p.id===id);
-    if(item){
-        item.qty += 1;
+/* Cart */
+function addToCart(id) {
+    const item = cart.find(p => p.id === id);
+    if(item) {
+        item.qty++;
     } else {
-        const product = products.find(p=>p.id===id);
-        cart.push({...product,qty:1});
+        const product = products.find(p => p.id === id);
+        cart.push({...product, qty:1});
     }
     updateCart();
 }
 
-function updateCart(){
-    cartItems.innerHTML="";
-    cart.forEach(p=>{
-        cartItems.innerHTML+=`<p>${p.name} x${p.qty}</p>`;
+function updateCart() {
+    cartItems.innerHTML = "";
+    cart.forEach(p => {
+        cartItems.innerHTML += `<p>${p.name} x${p.qty}</p>`;
     });
-    cartCount.innerText = cart.reduce((sum,p)=>sum+p.qty,0);
+    cartCount.innerText = cart.reduce((a,b)=>a+b.qty,0);
 }
 
-cartBtn.onclick = ()=> cartSidebar.classList.add("active");
-function closeCart(){ cartSidebar.classList.remove("active"); }
+cartBtn.onclick = () => cartPanel.classList.add("active");
+function closeCart() { cartPanel.classList.remove("active"); }
 
-/* SCROLL */
-function scrollToAbout(){
-    document.getElementById("aboutSection").scrollIntoView({behavior:"smooth"});
+function scrollToAbout() {
+    document.getElementById("aboutSection")
+        .scrollIntoView({behavior:"smooth"});
 }
-function scrollToTop(){
+
+function scrollTopPage() {
     window.scrollTo({top:0,behavior:"smooth"});
 }
