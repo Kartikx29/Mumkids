@@ -3,11 +3,14 @@ const dropdown = document.getElementById("mainDropdown");
 const aboutSection = document.getElementById("aboutSection");
 const productContainer = document.getElementById("productContainer");
 const cartCount = document.getElementById("cartCount");
+const logoClick = document.getElementById("logoClick");
+const welcomePopup = document.getElementById("welcomePopup");
 
 let cart = 0;
 
 menuToggle.onclick = () => {
-    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    dropdown.style.display =
+        dropdown.style.display === "block" ? "none" : "block";
 };
 
 function goHome() {
@@ -50,6 +53,14 @@ function filterCategory(cat) {
 function addToCart() {
     cart++;
     cartCount.innerText = cart;
+}
+
+logoClick.onclick = () => {
+    welcomePopup.style.display = "flex";
+};
+
+function closeWelcome() {
+    welcomePopup.style.display = "none";
 }
 
 displayProducts(products);
