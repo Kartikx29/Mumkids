@@ -3,72 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MumKids | Premium Fashion</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>MumKids</title>
 <link rel="stylesheet" href="style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
-    <div class="container nav-container">
-        <h1 class="logo">MumKids</h1>
-
-        <!-- Hamburger for mobile -->
-        <div class="hamburger" id="hamburger">
+    <div class="header-left">
+        <img src="logo.png" class="logo">
+        <div class="menu-icon" id="menuToggle">
             <span></span>
             <span></span>
             <span></span>
         </div>
+    </div>
 
-        <!-- Navigation Menu -->
-        <nav id="nav-menu">
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="products.html">Shop &#9662;</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Top Wear</a></li>
-                        <li><a href="#">Bottom Wear</a></li>
-                        <li><a href="#">Outerwear</a></li>
-                    </ul>
-                </li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
+    <h1 class="brand-name">MumKids</h1>
 
-        <!-- Icons -->
-        <div class="header-icons">
-            <span class="search-icon">&#128269;</span>
-            <span class="cart-icon">&#128722; <span id="cart-count">0</span></span>
+    <div class="header-right">
+        <i class="fa-solid fa-magnifying-glass icon"></i>
+        <div class="cart-container">
+            <i class="fa-solid fa-cart-shopping icon"></i>
+            <span class="cart-count" id="cartCount">0</span>
         </div>
     </div>
 </header>
 
-<!-- HERO SECTION -->
-<section class="hero">
-    <div class="hero-content">
-        <h2>Premium Kids Fashion</h2>
-        <p>Elegant. Comfortable. Trendy.</p>
-        <a href="products.html" class="btn-primary">Shop Collection</a>
-    </div>
+<!-- Main Dropdown -->
+<nav class="dropdown" id="mainDropdown">
+    <ul>
+        <li onclick="goHome()">Home</li>
+        <li class="shop-item">
+            Shop ▸
+            <ul class="submenu">
+                <li onclick="filterCategory('men')">Men</li>
+                <li onclick="filterCategory('women')">Women</li>
+                <li onclick="filterCategory('kids')">Kids</li>
+            </ul>
+        </li>
+        <li onclick="goAbout()">About</li>
+    </ul>
+</nav>
+
+<section class="products" id="productContainer">
 </section>
 
-<!-- FEATURED PRODUCTS -->
-<section class="featured">
-    <div class="container">
-        <h2 class="section-title">Featured Collection</h2>
-        <div id="products-container" class="product-grid"></div>
-    </div>
+<section class="about-section" id="aboutSection">
+    <h2>About MumKids</h2>
+    <p>Premium clothing collection for families. Designed with love.</p>
 </section>
-
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/919499111369" class="floating-whatsapp" target="_blank">Chat</a>
-
-<!-- FOOTER -->
-<footer>
-    <p>© 2026 MumKids. All Rights Reserved.</p>
-</footer>
 
 <script src="script.js"></script>
 </body>
